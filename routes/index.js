@@ -5,6 +5,7 @@ const classroomController = require("../controllers").classroom;
 const studentController = require("../controllers").student;
 const lecturerController = require("../controllers").lecturer;
 const courseController = require("../controllers").course;
+const authController = require("../controllers").auth;
 
 /* Classroom Router */
 router.get("/api/classroom", classroomController.list);
@@ -33,6 +34,9 @@ router.get("/api/course/:id", courseController.getById);
 router.post("/api/course", courseController.add);
 router.put("/api/course/:id", courseController.update);
 router.delete("/api/course/:id", courseController.delete);
+
+/* Auth Router */
+router.post("/api/auth/signup", authController.signup);
 
 /* Advance Router */
 router.post("/api/student/add_course", studentController.addCourse);
