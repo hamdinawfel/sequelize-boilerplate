@@ -49,6 +49,7 @@ module.exports = {
   add(req, res) {
     return Course.create({
       course_name: req.body.course_name,
+      lecturer_id: req.body.lecturer_id,
     })
       .then((course) => res.status(201).send(course))
       .catch((error) => res.status(400).send(error));

@@ -10,14 +10,14 @@ module.exports = {
           model: Classroom,
           as: "classroom",
         },
-        {
-          model: Course,
-          as: "courses",
-        },
+        // {
+        //   model: Course,
+        //   as: "courses",
+        // },
       ],
       order: [
         ["createdAt", "DESC"],
-        [{ model: Course, as: "courses" }, "createdAt", "DESC"],
+        // [{ model: Course, as: "courses" }, "createdAt", "DESC"],
       ],
     })
       .then((students) => res.status(200).send(students))

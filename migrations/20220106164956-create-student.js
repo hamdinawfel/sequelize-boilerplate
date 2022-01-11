@@ -13,6 +13,12 @@ module.exports = {
       },
       student_name: {
         type: DataTypes.STRING,
+        required: true,
+        allowNull: false,
+        validate: {
+          notNull: { msg: "User must have a First Name" },
+          notEmpty: { msg: "First Name must not be empty" },
+        },
       },
       createdAt: {
         allowNull: false,

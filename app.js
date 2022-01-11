@@ -12,6 +12,14 @@ app.use(express.json());
 
 app.use("/", indexRouter);
 
+app.all("*", (req, res, next) => {
+  const err = new Error(`Can't find ${req.originalUrl} on this server!`);
+  err.status = "fail";
+  err.statusCode = 404;
+
+  next(err);
+});
+
 app.listen({ port: 5000 }, async () => {
   console.log(`Server running`);
   await sequelize.authenticate();
